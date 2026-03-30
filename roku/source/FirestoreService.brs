@@ -54,6 +54,18 @@ function FetchShelf(userId as string) as object
                     end if
                 end if
             end if
+            movie.categories = []
+            if fields.categories <> invalid
+                if fields.categories.arrayValue <> invalid
+                    if fields.categories.arrayValue.values <> invalid
+                        for each catItem in fields.categories.arrayValue.values
+                            if catItem.stringValue <> invalid
+                                movie.categories.Push(catItem.stringValue)
+                            end if
+                        end for
+                    end if
+                end if
+            end if
             movies.Push(movie)
         end if
     end for

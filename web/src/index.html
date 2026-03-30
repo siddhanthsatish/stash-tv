@@ -5,6 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>STASH — Your Movie Shelf</title>
   <style>
+    .cat-picker { margin: 8px 0; }
+    .cat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .cat-chip {
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #333;
+    color: #aaa;
+    font-size: 11px;
+    cursor: pointer;
+    user-select: none;
+    }
+    .cat-chip.selected { background: #fff; color: #000; }
+    .cat-custom { display: flex; gap: 6px; margin: 6px 0; }
+    .cat-custom input {
+    flex: 1;
+    padding: 6px 10px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 12px;
+    }
+    .cat-custom button {
+    padding: 6px 12px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    }
+    .save-btn {
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    }
+    .remove-btn {
+    width: 100%;
+    margin-top: 4px;
+    padding: 8px;
+    background: #333;
+    color: #aaa;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: #0a0a0a;

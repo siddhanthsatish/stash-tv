@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="CategoryRow" extends="Group">
+    <script type="text/brightscript" uri="pkg:/source/CategoryRow.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <interface>
+        <field id="rowData" type="assocarray" onChange="OnRowDataSet"/>
+        <field id="active" type="boolean" value="false" onChange="OnActiveChanged"/>
+        <field id="itemSelected" type="integer" value="-1"/>
+        <field id="focusedIndex" type="integer" value="0"/>
+    </interface>
+    <children>
+        <Rectangle
+            id="border"
+            width="840"
+            height="420"
+            color="0xFFFFFF22"
+            opacity="0"
+        />
+        <Label
+            id="rowLabel"
+            translation="[12, 8]"
+            font="font:SmallBoldSystemFont"
+            color="0xAAAAAAFF"
+        />
+        <PosterGrid
+            id="rowGrid"
+            translation="[12, 40]"
+            itemSize="[200, 360]"
+            itemSpacing="[10, 0]"
+            numColumns="4"
+        />
+    </children>
+</component>

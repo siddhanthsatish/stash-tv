@@ -8,32 +8,28 @@
         <Label
             id="headerLabel"
             text="🎬 STASH"
-            translation="[80, 60]"
+            translation="[0, 30]"
+            width="1920"
+            horizAlign="center"
             font="font:LargeBoldSystemFont"
             color="0xFFFFFFFF"
         />
         <Label
             id="subLabel"
             text="Loading your shelf..."
-            translation="[80, 120]"
+            translation="[60, 90]"
             font="font:MediumSystemFont"
             color="0xAAAAAAFF"
         />
-        <PosterGrid
-            id="movieGrid"
-            translation="[80, 180]"
-            itemSize="[200, 300]"
-            itemSpacing="[20, 20]"
-            numColumns="8"
-        />
-        <Label
-            id="focusedTitle"
-            translation="[80, 980]"
-            font="font:MediumBoldSystemFont"
-            color="0xFFFFFFFF"
-            width="1760"
-            horizAlign="center"
-        />
+        <!-- Row 0, Col 0 -->
+        <CategoryRow id="row0" translation="[60, 130]"/>
+        <!-- Row 0, Col 1 -->
+        <CategoryRow id="row1" translation="[1000, 130]"/>
+        <!-- Row 1, Col 0 -->
+        <CategoryRow id="row2" translation="[60, 570]"/>
+        <!-- Row 1, Col 1 -->
+        <CategoryRow id="row3" translation="[1000, 570]"/>
+
         <DetailScene
             id="detailScene"
             visible="false"
