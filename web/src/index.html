@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STASH — Your Movie Shelf</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      padding: 24px 40px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    header h1 { font-size: 28px; letter-spacing: -0.5px; }
+    header span { color: #888; font-size: 14px; }
+    .search-bar {
+      padding: 32px 40px 0;
+      display: flex;
+      gap: 12px;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: 14px 20px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+    }
+    .search-bar input:focus { border-color: #fff; }
+    .search-bar button {
+      padding: 14px 28px;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .results {
+      padding: 24px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .movie-card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 2px solid transparent;
+    }
+    .movie-card:hover { transform: scale(1.03); border-color: #fff; }
+    .movie-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
+    .movie-card .info { padding: 10px; }
+    .movie-card .info h3 { font-size: 13px; font-weight: 600; line-height: 1.3; }
+    .movie-card .info p { font-size: 11px; color: #888; margin-top: 4px; }
+    .add-btn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .add-btn.added { background: #22c55e; color: #fff; }
+    .shelf-section { padding: 32px 40px 0; }
+    .shelf-section h2 { font-size: 20px; margin-bottom: 16px; color: #aaa; }
+    #status {
+      padding: 8px 40px;
+      font-size: 13px;
+      color: #22c55e;
+      min-height: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎬 STASH</h1>
+    <span>Streaming Titles All Saved Here</span>
+  </header>
+  <div id="status"></div>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a movie or show..."/>
+    <button id="searchBtn">Search</button>
+  </div>
+  <div class="results" id="results"></div>
+  <div class="shelf-section">
+    <h2>Your Shelf</h2>
+    <div class="results" id="shelfResults"></div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
