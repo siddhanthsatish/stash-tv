@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="MainScene" extends="Scene">
     <script type="text/brightscript" uri="pkg:/source/main.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/TMDBService.brs"/>
     <children>
         <Label
-            id="helloLabel"
-            text="Welcome to STASH 🎬"
+            id="statusLabel"
+            text="Connecting to TMDB..."
             horizAlign="center"
             vertAlign="center"
             width="1920"
