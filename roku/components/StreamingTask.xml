@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="StreamingTask" extends="Task">
+    <script type="text/brightscript" uri="pkg:/source/StreamingService.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <interface>
+        <field id="tmdbId" type="integer"/>
+        <field id="streamingResults" type="assocarray"/>
+    </interface>
+</component>

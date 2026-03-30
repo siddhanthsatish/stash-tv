@@ -1,4 +1,4 @@
-sub RunTask()
+sub RunTMDBTask()
     print "TMDBTask: Starting..."
     movies = FetchTrendingMovies()
     print "TMDBTask: Got " + movies.Count().toStr() + " movies"

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="DetailScene" extends="Group">
+    <script type="text/brightscript" uri="pkg:/source/DetailScene.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <interface>
+        <field id="movie" type="assocarray" onChange="OnMovieSet"/>
+    </interface>
+    <children>
+        <!-- Backdrop -->
+        <Poster
+            id="backdrop"
+            width="1920"
+            height="1080"
+            loadDisplayMode="scaleToZoom"
+        />
+
+        <!-- Dark overlay -->
+        <Rectangle
+            width="1920"
+            height="1080"
+            color="0x00000099"
+        />
+
+        <!-- Movie Title -->
+        <Label
+            id="titleLabel"
+            translation="[80, 200]"
+            font="font:LargeBoldSystemFont"
+            color="0xFFFFFFFF"
+            width="1200"
+        />
+
+        <!-- Year and Rating -->
+        <Label
+            id="metaLabel"
+            translation="[80, 280]"
+            font="font:MediumSystemFont"
+            color="0xAAAAAAFF"
+        />
+
+        <!-- Overview -->
+        <Label
+            id="overviewLabel"
+            translation="[80, 340]"
+            font="font:SmallSystemFont"
+            color="0xFFFFFFFF"
+            width="900"
+            wrap="true"
+            maxLines="4"
+        />
+
+        <!-- Where to Watch label -->
+        <Label
+            id="whereLabel"
+            translation="[80, 560]"
+            font="font:MediumBoldSystemFont"
+            color="0xFFFFFFFF"
+            text="Where to Watch"
+        />
+
+        <!-- Streaming options -->
+        <Label
+            id="streamingLabel"
+            translation="[80, 620]"
+            font="font:MediumSystemFont"
+            color="0xAAAAAAFF"
+            text="Loading streaming info..."
+        />
+
+        <!-- Back hint -->
+        <Label
+            id="backHint"
+            translation="[80, 980]"
+            font="font:SmallSystemFont"
+            color="0x888888FF"
+            text="Press BACK to return to your shelf"
+        />
+    </children>
+</component>

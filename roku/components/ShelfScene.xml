@@ -4,7 +4,6 @@
     <script type="text/brightscript" uri="pkg:/source/TMDBService.brs"/>
     <script type="text/brightscript" uri="pkg:/source/config.brs"/>
     <children>
-        <!-- Header -->
         <Label
             id="headerLabel"
             text="🎬 STASH"
@@ -12,8 +11,6 @@
             font="font:LargeBoldSystemFont"
             color="0xFFFFFFFF"
         />
-
-        <!-- Subtitle -->
         <Label
             id="subLabel"
             text="Trending This Week"
@@ -21,8 +18,6 @@
             font="font:MediumSystemFont"
             color="0xAAAAAAFF"
         />
-
-        <!-- Poster Grid -->
         <PosterGrid
             id="movieGrid"
             translation="[80, 180]"
@@ -30,8 +25,6 @@
             itemSpacing="[20, 20]"
             numColumns="8"
         />
-
-        <!-- Movie Title on Focus -->
         <Label
             id="focusedTitle"
             translation="[80, 980]"
@@ -39,6 +32,10 @@
             color="0xFFFFFFFF"
             width="1760"
             horizAlign="center"
+        />
+        <DetailScene
+            id="detailScene"
+            visible="false"
         />
     </children>
 </component>
