@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="TMDBTask" extends="Task">
+    <script type="text/brightscript" uri="pkg:/source/TMDBService.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <interface>
+        <field id="movies" type="assocarray"/>
+    </interface>
+</component>

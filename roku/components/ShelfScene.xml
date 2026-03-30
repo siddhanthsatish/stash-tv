@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="ShelfScene" extends="Scene">
+    <script type="text/brightscript" uri="pkg:/source/ShelfScene.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/TMDBService.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <children>
+        <!-- Header -->
+        <Label
+            id="headerLabel"
+            text="🎬 STASH"
+            translation="[80, 60]"
+            font="font:LargeBoldSystemFont"
+            color="0xFFFFFFFF"
+        />
+
+        <!-- Subtitle -->
+        <Label
+            id="subLabel"
+            text="Trending This Week"
+            translation="[80, 120]"
+            font="font:MediumSystemFont"
+            color="0xAAAAAAFF"
+        />
+
+        <!-- Poster Grid -->
+        <PosterGrid
+            id="movieGrid"
+            translation="[80, 180]"
+            itemSize="[200, 300]"
+            itemSpacing="[20, 20]"
+            numColumns="8"
+        />
+
+        <!-- Movie Title on Focus -->
+        <Label
+            id="focusedTitle"
+            translation="[80, 980]"
+            font="font:MediumBoldSystemFont"
+            color="0xFFFFFFFF"
+            width="1760"
+            horizAlign="center"
+        />
+    </children>
+</component>
