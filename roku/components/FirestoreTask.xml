@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="FirestoreTask" extends="Task">
+    <script type="text/brightscript" uri="pkg:/source/FirestoreService.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/config.brs"/>
+    <interface>
+        <field id="shelf" type="assocarray"/>
+    </interface>
+</component>

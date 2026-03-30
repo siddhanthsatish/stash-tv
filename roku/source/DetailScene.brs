@@ -15,31 +15,44 @@ sub OnMovieSet()
     config = GetConfig()
 
     ' Set backdrop
-    if movie.backdrop_path <> invalid and movie.backdrop_path <> ""
+    if movie.backdropPath <> invalid and movie.backdropPath <> ""
+        m.backdrop.uri = "https://image.tmdb.org/t/p/w1280" + movie.backdropPath
+    else if movie.backdrop_path <> invalid and movie.backdrop_path <> ""
         m.backdrop.uri = "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
     end if
 
     ' Set title
-    m.titleLabel.text = movie.title
+    title = movie.title
+    if title = invalid then title = movie.name
+    if title <> invalid then m.titleLabel.text = title
 
     ' Set meta
     year = ""
-    if movie.release_date <> invalid and Len(movie.release_date) >= 4
-        year = Left(movie.release_date, 4)
+    releaseDate = movie.releaseDate
+    if releaseDate = invalid then releaseDate = movie.release_date
+    if releaseDate <> invalid and Len(releaseDate) >= 4
+        year = Left(releaseDate, 4)
     end if
     rating = ""
-    if movie.vote_average <> invalid
-        rating = "⭐ " + Left(Str(movie.vote_average), 3)
+    voteAverage = movie.voteAverage
+    if voteAverage = invalid then voteAverage = movie.vote_average
+    if voteAverage <> invalid
+        rating = "⭐ " + Left(Str(voteAverage), 3)
     end if
     m.metaLabel.text = year + "  " + rating
 
     ' Set overview
-    if movie.overview <> invalid
-        m.overviewLabel.text = movie.overview
-    end if
+    overview = movie.overview
+    if overview <> invalid then m.overviewLabel.text = overview
 
-    ' Fetch streaming info
-    FetchStreamingInfo(movie.id)
+    ' Get tmdbId from either field
+    tmdbId = movie.tmdbId
+    if tmdbId = invalid then tmdbId = movie.id
+    if tmdbId <> invalid
+        FetchStreamingInfo(CInt(tmdbId))
+    else
+        m.streamingLabel.text = "Streaming info unavailable"
+    end if
 end sub
 
 sub FetchStreamingInfo(tmdbId as integer)

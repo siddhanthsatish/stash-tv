@@ -3,9 +3,33 @@ sub init()
     m.focusedTitle = m.top.findNode("focusedTitle")
     m.subLabel = m.top.findNode("subLabel")
     m.detailScene = m.top.findNode("detailScene")
-    m.subLabel.text = "Loading..."
+    m.subLabel.text = "Loading your shelf..."
     m.inDetail = false
 
+    ' Load from Firestore first
+    m.firestoreTask = CreateObject("roSGNode", "FirestoreTask")
+    m.firestoreTask.functionName = "RunFirestoreTask"
+    m.firestoreTask.observeField("shelf", "OnShelfLoaded")
+    m.firestoreTask.control = "RUN"
+end sub
+
+sub OnShelfLoaded()
+    shelf = m.firestoreTask.shelf
+    if shelf <> invalid and shelf.movies.Count() > 0
+        print "ShelfScene: Loaded " + shelf.movies.Count().toStr() + " movies from shelf"
+        m.movies = shelf.movies
+        m.subLabel.text = "My Shelf"
+        LoadPosters(m.movies)
+        m.movieGrid.observeField("itemFocused", "OnMovieFocused")
+        m.movieGrid.SetFocus(true)
+    else
+        print "ShelfScene: Shelf empty, falling back to trending"
+        m.subLabel.text = "Trending This Week"
+        LoadTrending()
+    end if
+end sub
+
+sub LoadTrending()
     m.task = CreateObject("roSGNode", "TMDBTask")
     m.task.functionName = "RunTMDBTask"
     m.task.observeField("movies", "OnMoviesLoaded")
@@ -16,7 +40,6 @@ sub OnMoviesLoaded()
     movies = m.task.movies
     if movies <> invalid and movies.results <> invalid and movies.results.Count() > 0
         m.movies = movies.results
-        m.subLabel.text = "Trending This Week"
         LoadPosters(m.movies)
         m.movieGrid.observeField("itemFocused", "OnMovieFocused")
         m.movieGrid.SetFocus(true)
@@ -31,7 +54,11 @@ sub LoadPosters(movies as object)
     for each movie in movies
         item = CreateObject("roSGNode", "ContentNode")
         item.title = movie.title
-        item.HDPosterUrl = config.tmdb_image_base_url + movie.poster_path
+        if movie.posterPath <> invalid and movie.posterPath <> ""
+            item.HDPosterUrl = config.tmdb_image_base_url + movie.posterPath
+        else if movie.poster_path <> invalid and movie.poster_path <> ""
+            item.HDPosterUrl = config.tmdb_image_base_url + movie.poster_path
+        end if
         contentList.appendChild(item)
     end for
     m.movieGrid.content = contentList

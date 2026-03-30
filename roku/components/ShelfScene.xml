@@ -2,6 +2,7 @@
 <component name="ShelfScene" extends="Scene">
     <script type="text/brightscript" uri="pkg:/source/ShelfScene.brs"/>
     <script type="text/brightscript" uri="pkg:/source/TMDBService.brs"/>
+    <script type="text/brightscript" uri="pkg:/source/FirestoreService.brs"/>
     <script type="text/brightscript" uri="pkg:/source/config.brs"/>
     <children>
         <Label
@@ -13,7 +14,7 @@
         />
         <Label
             id="subLabel"
-            text="Trending This Week"
+            text="Loading your shelf..."
             translation="[80, 120]"
             font="font:MediumSystemFont"
             color="0xAAAAAAFF"
